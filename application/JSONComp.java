@@ -12,7 +12,7 @@ import java.io.File;
  */
 public class JSONComp
 {
-    private static TypeReference<Map<KeyCode,GameButtons>> example = new TypeReference<Map<KeyCode,GameButtons>>() {};
+    public static TypeReference<Map<KeyCode,GameButtons>> example = new TypeReference<Map<KeyCode,GameButtons>>() {};
     private static ObjectMapper obj = new ObjectMapper();
     public static void outputAppend(Map<KeyCode,GameButtons> o, String fileLocation) throws Exception{
         obj.writeValue(new File(fileLocation), o);

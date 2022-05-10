@@ -98,7 +98,7 @@ public class inputManager extends Application
         actionRelease.put(GameButtons.START, () -> {});
 
         try{
-            keyCodeAction = (Map<KeyCode,GameButtons>)JSONComp.inputAppend("./hello.json");
+            keyCodeAction = (Map<KeyCode,GameButtons>)JSONComp.inputAppend("hello.json");
         } catch(Exception ex){ex.printStackTrace();}
 
         // Show the Stage (window)
@@ -106,7 +106,7 @@ public class inputManager extends Application
         b.setOnAction(new EventHandler<ActionEvent>(){
                 public void handle(ActionEvent e){
                     try{
-                        JSONComp.outputAppend(keyCodeAction, "./hello.json");
+                        JSONComp.outputAppend(keyCodeAction, "hello.json");
                     } catch(Exception ex){ex.printStackTrace();}
                 }
             });
@@ -224,5 +224,8 @@ public class inputManager extends Application
         keyCodeAction.put(KeyCode.RIGHT, GameButtons.RIGHT);
         keyCodeAction.put(KeyCode.A, GameButtons.ACTION);
         keyCodeAction.put(KeyCode.ENTER, GameButtons.START);
+    }
+    public static void Main(String[] args) {
+    	launch(args);
     }
 }
