@@ -38,7 +38,7 @@ public class inputManager extends Application
     static int canWidth=640,canHeight=640;
     Canvas can;
     static GraphicsContext g;
-    //private final int BrushSize = 1;
+    private static final int BrushSize = 4;
     private static boolean parsingError = false;
     public static ArrayList<Layerable> paintOrder;
     public static Map<KeyCode,GameButtons> keyCodeAction = new HashMap<KeyCode,GameButtons>();
@@ -172,33 +172,32 @@ public class inputManager extends Application
     @SuppressWarnings("removal")
 	public static void PaintError(Error err){
         parsingError = true;
-        int mult = 4;
         int h = 60;
         int w = 20;
         g.setFill(Color.BLACK);
         g.fillRect(0,0,canWidth,canHeight);
         g.setFill(Color.RED);
-        g.fillRect((w+20)*mult,(20+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+20)*mult,(30+h)*mult,(10)*mult,(20)*mult);
-        g.fillRect((w+30)*mult,(35+h)*mult,(10)*mult,(10)*mult);
-        g.fillRect((w+20)*mult,(50+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+60)*mult,(20+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+60)*mult,(30+h)*mult,(10)*mult,(30)*mult);
-        g.fillRect((w+60)*mult,(35+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+80)*mult,(30+h)*mult,(10)*mult,(5)*mult);
-        g.fillRect((w+70)*mult,(45+h)*mult,(10)*mult,(5)*mult);
-        g.fillRect((w+70)*mult,(50+h)*mult,(15)*mult,(5)*mult);
-        g.fillRect((w+75)*mult,(55+h)*mult,(15)*mult,(5)*mult);
-        g.fillRect((w+100)*mult,(20+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+100)*mult,(30+h)*mult,(10)*mult,(30)*mult);
-        g.fillRect((w+100)*mult,(35+h)*mult,(30)*mult,(10)*mult);
-        g.fillRect((w+120)*mult,(30+h)*mult,(10)*mult,(5)*mult);
-        g.fillRect((w+110)*mult,(45+h)*mult,(10)*mult,(5)*mult);
-        g.fillRect((w+110)*mult,(50+h)*mult,(15)*mult,(5)*mult);
-        g.fillRect((w+115)*mult,(55+h)*mult,(15)*mult,(5)*mult);
+        g.fillRect((w+20)*BrushSize,(20+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+20)*BrushSize,(30+h)*BrushSize,(10)*BrushSize,(20)*BrushSize);
+        g.fillRect((w+30)*BrushSize,(35+h)*BrushSize,(10)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+20)*BrushSize,(50+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+60)*BrushSize,(20+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+60)*BrushSize,(30+h)*BrushSize,(10)*BrushSize,(30)*BrushSize);
+        g.fillRect((w+60)*BrushSize,(35+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+80)*BrushSize,(30+h)*BrushSize,(10)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+70)*BrushSize,(45+h)*BrushSize,(10)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+70)*BrushSize,(50+h)*BrushSize,(15)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+75)*BrushSize,(55+h)*BrushSize,(15)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+100)*BrushSize,(20+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+100)*BrushSize,(30+h)*BrushSize,(10)*BrushSize,(30)*BrushSize);
+        g.fillRect((w+100)*BrushSize,(35+h)*BrushSize,(30)*BrushSize,(10)*BrushSize);
+        g.fillRect((w+120)*BrushSize,(30+h)*BrushSize,(10)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+110)*BrushSize,(45+h)*BrushSize,(10)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+110)*BrushSize,(50+h)*BrushSize,(15)*BrushSize,(5)*BrushSize);
+        g.fillRect((w+115)*BrushSize,(55+h)*BrushSize,(15)*BrushSize,(5)*BrushSize);
         g.setFill(Color.WHITE);
         g.setTextAlign(TextAlignment.CENTER);
-        g.fillText(err.toString(),(w+70)*mult,(80+h)*mult);
+        g.fillText(err.toString(),(w+70)*BrushSize,(80+h)*BrushSize);
         Game.loop.suspend();
     }
 

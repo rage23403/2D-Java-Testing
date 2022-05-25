@@ -7,32 +7,38 @@ import javafx.scene.paint.Color;
  * @author Circle Onyx
  * @version 0.5a
  */
+@SuppressWarnings(value = { "unused" })
 public class Background implements Layerable
 {
     private byte Layer = -1;
-    private Image bg;
+    private Tile[] tileSheet;
+    private Image skybox;
     private Color exceptionColor;
     private int width, height;
     
     public byte getLayer(){return Layer;}
     public void moveUp(){}
     public void moveDown(){}
-    public Image getImage(){return bg;}
+    public Image getImage(){
+    	if(tileSheet.length > 6)
+    		return new Image("");
+    	return skybox;
+    	}
     public int[] getImgProps(){
         return new int[]{0, 0, 0, 0, width, height};
     }
     Background(int w, int h, String img){
         try{
-            bg = new Image(img);
-        }catch(Exception e){bg = null;}
+            skybox = new Image(img);
+        }catch(Exception e){skybox = null;}
         width = w;
         height = h;
     }
 
     Background(int w, int h, String img, Color backup){
         try{
-            bg = new Image(img);
-        }catch(Exception e){exceptionColor = backup; bg = null;}
+            skybox = new Image(img);
+        }catch(Exception e){exceptionColor = backup; skybox = null;}
         width = w;
         height = h;
     }
